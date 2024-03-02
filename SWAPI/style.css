@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Orbitron;
+    font-size: 10px;
+}
+
+body {
+    background-color: #000512;
+    
+}
+
+.container {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.peoplerow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 30% 50px 30%;
+    border-bottom: 2px solid #00ffdd;
+    padding-bottom: 10px;
+}
+
+h1 {
+    color: #fff;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 2rem;
+    display: inline-block;
+}
+
+h1.label {
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+h1.label:nth-last-child(2){
+    margin-left: 2rem;
+}
+
+#prev {
+    left: 20%;
+    display: none;
+}
+
+#next {
+    right: 20%;
+    display: block;
+}
+
+.people-tile {
+    background-color: #001b39;
+    border: 2px solid #00ffdd;
+    padding: 20px;
+}
+
+.text {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #b22222;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    margin: 0 10px;
+}
+
+.button-container button:hover {
+    background-color: #800000;
+}
+
+#error-info {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(226, 72, 72);
+    color: white;
+    font-size: 2rem;
+    padding: 20px;
+    border-radius: 10px;
+}
