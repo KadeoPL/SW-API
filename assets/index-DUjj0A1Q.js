@@ -9,6 +9,7 @@ const prevButton = document.getElementById('prev');
 const errBtn = document.getElementById('errBtn');
 const errDiv = document.getElementById('error-info');
 let saveLastPage;
+let saveLastPeopleData;
 
 async function getPeople(id) {
     try {
@@ -33,7 +34,7 @@ async function addPersonData(page) {
                 const person = new Person(people.name, people.height, homeworldData.name);
                 pagePeopleData.push(person);    
             } catch (error) {
-                showPopup('Status: ' + error.response.status + ' Message: ' + error.response.data.detail);
+                showPopup('Status:  ' + error.response.status + ' Message: ' + error.response.data.detail);
        }
 
     }
@@ -84,7 +85,9 @@ function createHtmlElements(name, height, homeworld){
 
 function saveLastVisitedPage() {
     localStorage.setItem('lastVisitedPage', currentPage);
+    localStorage.setItem('savedPeopleData', JSON.stringify(peopleData));
 }
+
 
 function showPrevButton() {
     if(currentPage > 1 || saveLastPage > 1) {
@@ -104,8 +107,8 @@ nextButton.addEventListener('click', () => {
 prevButton.addEventListener('click', () => {
     currentPage -= 1;
     container.innerHTML = '';
-    renderPersonData(currentPage);
     showPrevButton();
+    renderPersonData(currentPage);    
 });
 
 errBtn.addEventListener('click', () => {
@@ -115,14 +118,20 @@ errBtn.addEventListener('click', () => {
 });
 
 function restorePageState() {
-    saveLastPage = localStorage.getItem('lastVisitedPage');
-    renderPersonData(saveLastPage);
+    currentPage = localStorage.getItem('lastVisitedPage');
+    console.log('Curent page: ' + currentPage);
+    saveLastPeopleData = localStorage.getItem('savedPeopleData');
+    if (saveLastPeopleData) {
+        peopleData = JSON.parse(saveLastPeopleData);
+    }
+    renderPersonData(currentPage);
     showPrevButton();
 }
 
 window.addEventListener('beforeunload', saveLastVisitedPage);
 window.addEventListener('DOMContentLoaded', function(event) {
     showPrevButton();
+    console.log(window.localStorage);
     if (window.localStorage) {
         restorePageState();
     } else {
