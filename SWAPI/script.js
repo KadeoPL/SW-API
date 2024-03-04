@@ -33,7 +33,7 @@ async function addPersonData(page) {
                 const person = new Person(people.name, people.height, homeworldData.name);
                 pagePeopleData.push(person);    
             } catch (error) {
-                showPopup('Status: ' + error.response.status + ' Message: ' + error.response.data.detail);
+                showPopup('Status:  ' + error.response.status + ' Message: ' + error.response.data.detail);
        }
 
     }
