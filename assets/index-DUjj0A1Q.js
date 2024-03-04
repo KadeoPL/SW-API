@@ -1,6 +1,6 @@
 import {Person} from './personclass.js';
 //import axios from 'axios';
-import axios from '../api/axios.jsSWAPI\node_modules\.vite\deps\axios.js';
+import axios from '../SWAPI/node_modules/.vite/deps/axios.js';
 
 let currentPage = 1;
 let peopleData = [];
