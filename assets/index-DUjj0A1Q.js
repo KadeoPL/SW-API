@@ -1,6 +1,14 @@
-import {Person} from './personclass.js';
+
 //import axios from 'axios';
 import axios from '../SWAPI/node_modules/.vite/deps/axios.js';
+
+class Person {
+    constructor(name, height, homeworld) {
+        this.name = name;
+        this.height = height;
+        this.homeworld = homeworld;
+    }
+}
 
 let currentPage = 1;
 let peopleData = [];
